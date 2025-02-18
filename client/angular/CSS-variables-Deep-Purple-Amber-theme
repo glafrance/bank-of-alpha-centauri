@@ -1,0 +1,22 @@
+Here is a list of CSS variables for the built-in Deep Purple/Amber theme, along with their hex codes and swatches:
+
+CSS Variable	Hex Code	Description
+--mdc-theme-primary	#673AB7	Deep Purple 500 (Main Theme Color)
+--mdc-theme-on-primary	#FFFFFF	White text on primary background
+--mdc-theme-primary-container	#D1C4E9	Light Purple container
+--mdc-theme-on-primary-container	#311B92	Dark Purple text on primary container
+--mdc-theme-secondary	#FF6F00	Deep Amber (A700)
+--mdc-theme-on-secondary	#FFFFFF	White text on secondary background
+--mdc-theme-secondary-container	#FFE082	Light Amber (A100)
+--mdc-theme-on-secondary-container	#FF6F00	Amber A700 text color
+--mdc-theme-background	#FAFAFA	Grey 50 (Default Background)
+--mdc-theme-on-background	#212121	Black text on background (87% opacity)
+--mdc-theme-surface	#FFFFFF	White (Default Card Background)
+--mdc-theme-on-surface	#212121	Black text on surface (87% opacity)
+--mdc-theme-surface-variant	#EDE7F6	Light Purple variant
+--mdc-theme-on-surface-variant	#512DA8	Dark Purple text on surface variant
+--mdc-theme-error	#F44336	Red 500 (Error color)
+--mdc-theme-on-error	#FFFFFF	White text on error background
+--mdc-theme-outline	#B39DDB	Light Purple border color
+--mdc-theme-inverse-surface	#512DA8	Deep Purple 700 (Dark Mode Surface)
+--mdc-theme-inverse-on-surface	#EDE7F6	Light Purple text on dark surface

@@ -1,11 +1,11 @@
 @use '../../../styles/colors' as *;
 @use '../../../styles/variables' as *;
 
-header {
+.logo-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+.logo-text {
+  font-family: $font-heading;
   color: $gray800;
-  font-family: $font-ui;
-  margin: 30px;
 }

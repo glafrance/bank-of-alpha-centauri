@@ -10,5 +10,5 @@ INSERT INTO customers (
 );
 
 -- In Postman, do a POST with header Content-Type: application/json and body raw json:
--- { "email": "johndoe@example.com", "passwordABC1!": "passwordABC1!" }
+-- { "email": "johndoe@example.com", "password": "passwordABC1!" }
 -- http://localhost:8080/api/auth/login

@@ -13,25 +13,25 @@ public class Customer {
     @Column(name="id")
     private Long id;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String firstName;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String lastName;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45)
     private String address1;
 
     @Column(length = 45)
     private String address2;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String city;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String state;
 
-    @Column(length = 10, nullable = false)
+    @Column(length = 10)
     private String postalCode;
 
     @Column(length = 20)
@@ -46,13 +46,21 @@ public class Customer {
     @Column(length = 320, nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDate birthDate;
 
     @Column(length = 72, nullable = false)
     private String passwordHash;
 
     public Customer() {}
+
+    public Customer(
+            String email,
+            String passwordHash
+    ) {
+        this.email = email;
+        this.passwordHash = passwordHash;
+    }
 
     public Customer(
             String firstName,

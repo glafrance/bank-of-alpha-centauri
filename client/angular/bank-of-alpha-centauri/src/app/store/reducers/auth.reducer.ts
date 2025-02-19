@@ -24,17 +24,5 @@ export const authReducer = createReducer(
       ...state,
       error
     };
-  }),
-  on(AuthAPIActions.logoutSuccess, state => {
-    return {
-      ...state,
-      loggedIn: false
-    };
-  }),
-  on(AuthAPIActions.logoutFailure, (state, {error}) => {
-    return {
-      ...state,
-      error
-    };
   })
 );

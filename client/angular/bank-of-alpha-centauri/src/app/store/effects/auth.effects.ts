@@ -4,6 +4,7 @@ import { catchError, map, exhaustMap } from 'rxjs/operators';
 import { AuthUIActions, AuthAPIActions } from "../actions";
 import AuthService from "../../services/auth.service";
 import { of } from "rxjs";
+import { LoginResponse } from "../../models/auth.model";
 
 @Injectable()
 export class AuthEffects {
@@ -15,20 +16,12 @@ export class AuthEffects {
       ofType(AuthUIActions.login),
       exhaustMap(action => 
         this.authService.login(action.email, action.password).pipe(
-          map(() => AuthAPIActions.loginSuccess()),
+          map((response: LoginResponse) => {
+            localStorage.setItem('accessToken', response.accessToken);
+            localStorage.setItem('refreshToken', response.refreshToken);
+            return AuthAPIActions.loginSuccess();
+          }),
           catchError(error => of(AuthAPIActions.loginFailure({error})))
-        )
-      )
-    );
-  });
-
-  logout$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(AuthUIActions.logout),
-      exhaustMap(action => 
-        this.authService.logout(action.email).pipe(
-          map(() => AuthAPIActions.logoutSuccess()),
-          catchError(error => of(AuthAPIActions.logoutFailure({error})))
         )
       )
     );

@@ -4,6 +4,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from "@angular/common";
+import { Store } from "@ngrx/store";
+
+import { AuthUIActions } from "../../store/actions";
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +18,10 @@ export default class LoginFormComponent {
   loginForm: FormGroup;
   isRegistering = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder, 
+    private store: Store
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
@@ -49,9 +55,28 @@ export default class LoginFormComponent {
 
   submitForm() {
     if (this.loginForm.valid) {
-      const formData = this.loginForm.value;
-      console.log('Form Submitted', formData);
-      // Call API based on isRegistering flag
+      const { email, password } = this.loginForm.value;
+
+      if (this.isRegistering) {
+        // TODO add code throughout app for registering new user
+        // this.store.dispatch(
+        //   AuthUIActions.login(
+        //     { 
+        //       email: formData.get('email'), 
+        //       password: formData.get('password')
+        //     }
+        //   )
+        // );
+      } else {
+        this.store.dispatch(
+          AuthUIActions.login(
+            { 
+              email, 
+              password
+            }
+          )
+        );
+      }
     }
   }
 }

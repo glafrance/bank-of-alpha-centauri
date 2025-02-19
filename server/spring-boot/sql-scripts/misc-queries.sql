@@ -6,9 +6,9 @@ INSERT INTO customers (
 ) VALUES (
     'John', 'Doe', '123 Main St', 'Apt 4B', 'Springfield', 'IL', '62704', 
     '217-555-1234', '217-555-5678', '217-555-9012', 'johndoe@example.com', '1985-07-14', 
-    '$2a$12$qFuODD9Tz2qd1fqbnDdQG.h9vHNtT1YQPFjXgSRl86Od5TA6w/i4a'
+    '$2a$12$zikY30ZoRx.IS5Lxa4VVruSIk9FUS8fB7tmsdIsxKgLgYQbe3tCwK'
 );
 
 -- In Postman, do a POST with header Content-Type: application/json and body raw json:
--- { "email": "johndoe@example.com", "password": "password" }
+-- { "email": "johndoe@example.com", "passwordABC1!": "passwordABC1!" }
 -- http://localhost:8080/api/auth/login

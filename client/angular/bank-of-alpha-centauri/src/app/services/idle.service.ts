@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { IdleWarningDialogComponent } from '../components/dialogs/idle-warning.dialog';
+import AuthService from "./auth.service";
 
 @Injectable({
   providedIn: 'root' // ✅ This allows it to be automatically provided
@@ -12,7 +13,12 @@ export class IdleService {
   private idleTimer: any;
   private warningTimer: any;
 
-  constructor(private router: Router, private dialog: MatDialog, private ngZone: NgZone) {
+  constructor(
+    private router: Router, 
+    private dialog: MatDialog, 
+    private ngZone: NgZone,
+    private authService: AuthService
+  ) {
     this.resetTimers();
     this.startIdleTracking();
   }
@@ -56,7 +62,9 @@ export class IdleService {
   }
 
   private logoutUser() {
-    localStorage.removeItem('token'); // Remove JWT
-    this.router.navigate(['/login']);
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    this.authService.setIsLoggedIn(false);
+    this.router.navigateByUrl('/home');
   }
 }

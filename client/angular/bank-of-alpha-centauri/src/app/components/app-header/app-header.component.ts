@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material/dialog';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -6,23 +6,25 @@ import { MatDialogModule } from '@angular/material/dialog';
 import LogoComponent from "../logo/logo.component";
 import { LogoutConfirmDialog } from "../dialogs/logout-confirm.dialog";
 import AuthService from "../../services/auth.service";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-header',
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.scss'],
-  imports: [LogoComponent, MatButtonModule, MatDialogModule]
+  imports: [CommonModule, LogoComponent, MatButtonModule, MatDialogModule]
 })
-export default class AppHeaderComponent implements AfterViewInit {
+export default class AppHeaderComponent {
   @ViewChild('logoutButton', { static: false }) logoutButton!: MatButton;
 
-  constructor(private authService: AuthService, private dialog: MatDialog) {}
-
-  ngAfterViewInit(): void {
-    if (!this.logoutButton) {
-      console.error('Logout button reference is not available.');
-    }
+  constructor(private authService: AuthService, private dialog: MatDialog) {
+    this.authService.getIsLoggedInBS().subscribe({
+      next: result => this.loggedIn = result,
+      error: err => console.log('Failed to get updated login status: ', err)
+    });
   }
+
+  loggedIn: boolean = false;
 
   openLogoutDialog() {
     const dialogRef = this.dialog.open(LogoutConfirmDialog);

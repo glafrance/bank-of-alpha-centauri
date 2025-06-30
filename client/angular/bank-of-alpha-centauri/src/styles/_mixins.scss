@@ -1,0 +1,23 @@
+// Font Usage Guidelines
+// UI Element	              Font	          Weight	    Purpose
+// -------------------------------------------------------------------------------
+// Body text	              Inter	          400–500	    Maximum legibility
+// Input fields / labels	  Inter	          400–500	    Precision and clarity
+// Buttons / CTAs	          Inter	          600–700	    Standout emphasis
+// Data table labels	      Inter	          400–500	    Neutral and clean
+// Section headers	        IBM Plex Sans	  500–700	    Brand tone and visual hierarchy
+// Dashboard numbers	      IBM Plex Sans	  600–700	    Clear and prominent
+
+@mixin inter($weight: 400, $style: normal) {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin ibm-plex-sans($weight: 400, $style: normal) {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: $style;
+}

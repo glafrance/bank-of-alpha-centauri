@@ -1,15 +1,7 @@
-// $font-heading:	Page titles, hero text, large headlines
-// $font-subheading:	Section headers, card titles, form section titles
-// $font-body:	Paragraph text, descriptions, legal text
-// $font-ui:	Buttons, navigation, form labels, table headers
-// $font-mono:	Numbers, transaction IDs, account details
-
-// Primary Nav Items (Contact Us, About Us, Personal, Small Business, etc.) $font-ui ('Roboto')	
-// Subcategories (Checking, Savings, Loans, Credit Cards)	$font-ui ('Roboto')
-// Luxury Sections (Wealth Management)	$font-subheading ('Lora') (optional)
-
-$font-heading: 'Playfair Display', serif;
-$font-subheading: 'Lora', serif;
-$font-body: 'Inter', sans-serif;
-$font-ui: 'Roboto', sans-serif;
-$font-mono: 'Source Code Pro', monospace;
+// Devices: min-width (mobile-first)
+$breakpoint-xs: 320px;   // extra-small phones (very rare, but covered)
+$breakpoint-sm: 480px;   // small phones
+$breakpoint-md: 768px;   // tablets (portrait)
+$breakpoint-lg: 1024px;  // tablets (landscape) and small laptops
+$breakpoint-xl: 1280px;  // desktops
+$breakpoint-2xl: 1440px; // large desktops and ultra-wide screens

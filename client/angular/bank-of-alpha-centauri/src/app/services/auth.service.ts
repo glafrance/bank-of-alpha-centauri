@@ -1,6 +1,7 @@
 import { Injectable, inject } from "@angular/core";
+import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-import { Observable, tap } from "rxjs";
+import { BehaviorSubject, Observable, tap } from "rxjs";
 import { LoginResponse } from "../models/auth.model";
 
 @Injectable({
@@ -8,8 +9,20 @@ import { LoginResponse } from "../models/auth.model";
 })
 export default class AuthService {
   private http = inject(HttpClient);
+  private router = inject(Router);
+
   baseURL = 'http://localhost:8080';
   baseAPI = 'api/auth';
+
+  _isLoggedInBS: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
+  getIsLoggedInBS() {
+    return this._isLoggedInBS;
+  }
+
+  setIsLoggedIn(value: boolean) {
+    this._isLoggedInBS.next(value);
+  }
 
   login(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseURL}/${this.baseAPI}/login`, 
@@ -30,6 +43,7 @@ export default class AuthService {
       tap(response => {
         localStorage.setItem('accessToken', response.accessToken);
         localStorage.setItem('refreshToken', response.refreshToken);
+        this.setIsLoggedIn(true);
       })
     );
   }
@@ -37,6 +51,8 @@ export default class AuthService {
   logout() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+    this.setIsLoggedIn(false);
+    this.router.navigateByUrl('/home');
   }
 
   getAccessToken(): string | null {
@@ -53,3 +69,4 @@ export default class AuthService {
   //   }
   // });
 }
+``

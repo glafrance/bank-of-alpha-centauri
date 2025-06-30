@@ -1,6 +1,12 @@
 <header>
   <app-logo />
   <div>
-    <button #logoutButton mat-raised-button color="warn" (click)="openLogoutDialog()">Logout</button>
+    <button 
+      *ngIf="loggedIn"
+      #logoutButton 
+      mat-raised-button 
+      color="warn" 
+      (click)="openLogoutDialog()"
+    >Logout</button>
   </div>
 </header>

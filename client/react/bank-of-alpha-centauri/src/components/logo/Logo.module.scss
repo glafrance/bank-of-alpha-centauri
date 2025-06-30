@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as *;
+@use '../../styles/colors' as *;
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+.logoText {
+  @include ibm-plex-sans(500);
+  color: $gray800;
+}

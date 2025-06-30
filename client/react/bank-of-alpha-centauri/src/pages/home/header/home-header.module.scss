@@ -1,0 +1,25 @@
+@use "../../../styles/colors" as *;
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $gray100;
+  padding: 2px 50px 5px 50px;
+  width: 85%;
+}
+.fdicContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.textOne {
+  font-size: .6rem;
+}
+.textTwo {
+  font-size: .5rem;
+}
+.FDIC {
+  font-size: 1rem;
+  color: $blue900;
+}

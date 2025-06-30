@@ -2,11 +2,11 @@ import styles from "./Logo.module.scss";
 import logoImg from "../../assets/images/logo.jpg";
 
 interface LogoProps {
-  gap: string;
-  fontSize: string;
-  letterSpacing: string;
-  imageDimension: string;
-  borderRadius: string;
+  gap?: string;
+  fontSize?: string;
+  letterSpacing?: string;
+  imageDimension?: string;
+  borderRadius?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({

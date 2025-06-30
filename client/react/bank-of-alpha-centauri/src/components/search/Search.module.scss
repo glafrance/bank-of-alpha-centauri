@@ -1,12 +1,12 @@
 @use "../../styles/mixins" as *;
 @use '../../styles/colors' as *;
 
-.logoContainer {
+.searchContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
 }
-.logoText {
+.searchText {
   @include ibm-plex-sans(500);
   color: $gray800;
 }

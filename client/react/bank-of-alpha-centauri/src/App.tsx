@@ -1,11 +1,12 @@
-import Logo from "./components/logo/Logo"
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/home/home';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Logo />
-    </>
-  )
-}
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;

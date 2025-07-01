@@ -1,0 +1,22 @@
+@use "../../styles/colors" as *;
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 80vh;
+}
+.title {
+  color: $orange900;
+}
+.link {
+  text-decoration: none;
+  color: $default-text-color;
+  margin-top: 50px;
+}
+.bankName {
+  color: $orange900;
+  font-weight: 600;
+}

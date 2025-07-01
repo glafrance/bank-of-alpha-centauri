@@ -1,3 +1,5 @@
+@use './mixins';
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -13,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: system-ui, sans-serif;
+  @include mixins.inter();
   line-height: 1.5;
   background-color: #fff;
   color: #222;

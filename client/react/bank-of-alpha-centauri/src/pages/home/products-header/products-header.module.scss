@@ -1,0 +1,14 @@
+@use "../../../styles/colors" as *;
+
+.productHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  width: 75%;
+  margin-top: 25px;
+}
+.link {
+  text-decoration: none;
+  color: $default-text-color;
+}

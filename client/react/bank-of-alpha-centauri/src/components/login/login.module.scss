@@ -1,0 +1,51 @@
+@use "../../styles/colors" as *;
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 450px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: $orange700;
+    padding: 15px;
+    
+    input {
+      height: 30px;
+      padding: 0 5px;
+    }
+
+    button {
+      font-size: 16px;
+      color: $gray100;
+      background-color: $gray800;
+      padding: 7px 0;
+      border-radius: 20px;
+      border: 1px solid $gray800;
+      margin-top: 10px;
+    }
+
+  }
+
+  p {
+    width: fit-content;
+    font-size: 13px;
+    color: $gray100;
+    font-weight: 200;
+    cursor: pointer;
+  }
+
+  .openAccountContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      text-align: center;
+      line-height: 35px;
+    }    
+    background-color: $orange900;
+  }
+}
